@@ -17,7 +17,8 @@
       rel="stylesheet"
     />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <script src="categories.js"></script>
+    <script src="categories.js" defer></script>
+    <script src="categoryTree.js" defer></script>
     <link rel="stylesheet" href="styles.css" />
     <title>Green Earth</title>
   </head>
@@ -62,13 +63,13 @@
         <div class="flex flex-col justify-center items-start gap-4">
           <h2>Categories</h2>
           <ul id="categories-list">
-            <li class="active-category">All Trees</li>
+            <li class="active-category" id="category-all">All Trees</li>
           </ul>
         </div>
         <!-- cateogries section -->
         <!-- tree list section -->
         <div
-          id="tree-cards"
+          id="trees-category-all"
           class="col-span-2 sm:col-span-3 grid grid-cols-1 sm:grid-cols-3 justify-between items-start gap-[30px] tree-cards"
         ></div>
         <!-- tree list section -->

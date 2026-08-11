@@ -10,13 +10,14 @@ const loadCategory = (data) => {
   let categoriesList = document.getElementById("categories-list");
   for (let cat of data) {
     let categoryList = document.createElement("li");
+    categoryList.id = `category-${cat.id}`;
     categoryList.innerText = cat.category_name;
     categoriesList.appendChild(categoryList);
   }
 };
 
 const loadTrees = (data) => {
-  let trees = document.getElementById("tree-cards");
+  let trees = document.getElementById("trees-category-all");
   data.forEach((tree) => {
     let treeCard = document.createElement("div");
     treeCard.className = "tree-card";

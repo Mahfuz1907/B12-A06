@@ -7,6 +7,11 @@ body {
   padding: 0;
 }
 
+.active-category {
+  background-color: #15803dff;
+  color: white !important;
+}
+
 /* nav section */
 nav {
   background-color: #15803dff;
@@ -97,11 +102,6 @@ form button:hover {
   padding: 8px 10px;
   border-radius: 4px;
   width: 100%;
-}
-
-.active-category {
-  background-color: #15803dff;
-  color: white !important;
 }
 
 .tree-card {
