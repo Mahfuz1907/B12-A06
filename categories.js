@@ -29,7 +29,7 @@ const loadTrees = (data) => {
     treeCard.innerHTML = `
     <img class='tree-img' src=${tree.image} alt="" />
             <div class="flex flex-col justify-center items-start gap-2">
-              <h3 class="text-[#1f2937] font-semibold text-sm">${tree.name}</h3>
+              <h3 id='tree-name-${tree.id}' class="text-[#1f2937] font-semibold text-sm cursor-pointer">${tree.name}</h3>
               <p class="text-[#1f2937] font-normal text-xs">
                 ${tree.description}
               </p>
@@ -42,7 +42,7 @@ const loadTrees = (data) => {
                 <h4 class="text-[#152937] text-sm font-semibold">&#2547;${tree.price}</h4>
               </div>
             </div>
-            <button class="w-full">Add to Cart</button>`;
+            <button id='cart-${tree.id}' class="w-full">Add to Cart</button>`;
 
     trees.appendChild(treeCard);
   });
