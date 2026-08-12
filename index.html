@@ -94,18 +94,10 @@
         <!-- cart section -->
         <div class="bg-white cart h-full col-span-3 sm:col-span-1">
           <h2 class="text-black font-semibold text-xl">Your Cart</h2>
-          <div class="cart-items">
-            <div class="cart-item">
-              <div class="cart-content">
-                <h3>Mango Tree</h3>
-                <h4>&#2547;500 <i class="fa-solid fa-x"></i> 1</h4>
-              </div>
-              <i class="fa-solid fa-xmark cursor-pointer hover:text-lg"></i>
-            </div>
-          </div>
+          <div id="cart-items" class="cart-items"></div>
           <div class="cart-total">
             <h3>Total</h3>
-            <h3>&#2547;500</h3>
+            <h3>&#2547;<span id="cart-total-price">0</span></h3>
           </div>
         </div>
         <!-- cart section -->

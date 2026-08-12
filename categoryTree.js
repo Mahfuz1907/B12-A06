@@ -60,6 +60,7 @@ const displayTree = (data, id) => {
   let trees = document.getElementById(`trees-category-${id}`);
   data.forEach((tree) => {
     let treeCard = document.createElement("div");
+    treeCard.id = `tree-${tree.id}`;
     treeCard.className = "tree-card";
     treeCard.innerHTML = `
     <img class='tree-img' src=${tree.image} alt="" />
@@ -74,10 +75,10 @@ const displayTree = (data, id) => {
                 >
                   ${tree.category}
                 </h4>
-                <h4 class="text-[#152937] text-sm font-semibold">&#2547;${tree.price}</h4>
+                <h4 id='tree-price-${tree.id}' class="text-[#152937] text-sm font-semibold">&#2547;${tree.price}</h4>
               </div>
             </div>
-            <button id='cart-${tree.id}' class="w-full">Add to Cart</button>`;
+            <button id='cart-button-${tree.id}' class="w-full">Add to Cart</button>`;
 
     trees.appendChild(treeCard);
   });
