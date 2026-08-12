@@ -2,10 +2,6 @@ fetch("https://openapi.programming-hero.com/api/categories")
   .then((response) => response.json())
   .then((data) => loadCategory(data.categories));
 
-fetch("https://openapi.programming-hero.com/api/plants")
-  .then((res) => res.json())
-  .then((data) => loadTrees(data.plants));
-
 const loadCategory = (data) => {
   let categoriesList = document.getElementById("categories-list");
   for (let cat of data) {
@@ -15,6 +11,15 @@ const loadCategory = (data) => {
     categoriesList.appendChild(categoryList);
   }
 };
+
+toggleSpinner(true);
+fetch("https://openapi.programming-hero.com/api/plants")
+  .then((res) => res.json())
+  .then((data) => loadTrees(data.plants))
+  .catch((err) => console.error(err))
+  .finally(() => {
+    toggleSpinner(false);
+  });
 
 const loadTrees = (data) => {
   let trees = document.getElementById("trees-category-all");

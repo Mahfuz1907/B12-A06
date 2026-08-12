@@ -28,18 +28,32 @@ categoriesContainer.addEventListener("click", (event) => {
 
   if (targetTree) {
     const allTrees = document.querySelectorAll('[id^="trees-category-"]');
+    const allCategory = document.querySelectorAll('[id^="category-"]');
 
     allTrees.forEach((trees) => trees.classList.add("hidden"));
+    allCategory.forEach((cat) => cat.classList.remove("active-category"));
 
     targetTree.classList.remove("hidden");
+    document
+      .getElementById(`category-${idNumber}`)
+      .classList.add("active-category");
   }
 });
 
 //loading trees for each categories
 const loadCategoryTrees = (id) => {
-  fetch(`https://openapi.programming-hero.com/api/category/${id}`)
+  const url =
+    id === "all"
+      ? "https://openapi.programming-hero.com/api/plants"
+      : `https://openapi.programming-hero.com/api/category/${id}`;
+  toggleSpinner(true);
+  fetch(url)
     .then((res) => res.json())
-    .then((data) => displayTree(data.plants, id));
+    .then((data) => displayTree(data.plants, id))
+    .catch((err) => console.error(err))
+    .finally(() => {
+      toggleSpinner(false);
+    });
 };
 
 const displayTree = (data, id) => {
