@@ -15,11 +15,22 @@ treesSection.addEventListener("click", (event) => {
                 <h3>${treeName}</h3>
                 <h4 class='cart-price'>${treePrice} <i class="fa-solid fa-x"></i> 1</h4>
               </div>
-              <i class="fa-solid fa-xmark cursor-pointer hover:text-lg"></i>`;
+              <i class="cart-del-button fa-solid fa-xmark cursor-pointer hover:text-lg"></i>`;
 
   cartItems.prepend(cartItem);
 
   cartPriceCalculation(cartItems);
+});
+
+const cartItems = document.getElementById("cart-items");
+cartItems.addEventListener("click", (event) => {
+  const delBtn = event.target.closest(".cart-del-button");
+  if (!delBtn) return;
+  const cartItem = delBtn.closest(".cart-item");
+  if (cartItem) {
+    cartItem.remove();
+    cartPriceCalculation(cartItems);
+  }
 });
 
 const cartPriceCalculation = (cartItems) => {

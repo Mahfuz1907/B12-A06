@@ -150,6 +150,7 @@ form button:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 10px;
   width: 100%;
   padding-bottom: 8px;
   border-bottom: 1px solid #1f2937ff;
